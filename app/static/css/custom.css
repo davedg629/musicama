@@ -34,7 +34,7 @@ padding: 5px;
 
 /* --- nav bar --- */
 .navbar-nav > li {padding: 0 0 0 0;}
-.navbar-default .navbar-nav>li>a {color: #336699; font-weight: bold;}
+.navbar-default .navbar-nav>li>a {color: #336699; font-size: 14px; font-weight: bold; padding-left: 10px; padding-right: 10px;}
 
 .navbar-toggle {margin-top: 15px;}
 
@@ -50,6 +50,9 @@ form ul.errors li {display: block; list-style-type: none; margin: 0 0 6px; paddi
 .has-error .form-control, .has-error .form-control:focus {border-color: #b94a48;}
 
 form textarea.form-control {height: 150px;}
+
+form .input-row {margin-bottom: 14px;}
+form .input-row label.control-label {font-size: 14px;}
 
 /* --- reddit preview --- */
 .reddit-preview {font-family: verdana,arial,helvetica,sans-serif; margin: 0 0 20px;}

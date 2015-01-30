@@ -62,6 +62,13 @@ class Thread(db.Model):
     body = db.Column(db.String, nullable=False)
     verification = db.Column(db.String, nullable=False)
     subreddit = db.Column(db.String, nullable=False)
+    link_facebook = db.Column(db.String)
+    link_twitter = db.Column(db.String)
+    link_youtube = db.Column(db.String)
+    link_bandcamp = db.Column(db.String)
+    link_soundcloud = db.Column(db.String)
+    link_website = db.Column(db.String)
+    link_label_website = db.Column(db.String)
 
     submitted = db.Column(db.Boolean, nullable=False, default=False)
 

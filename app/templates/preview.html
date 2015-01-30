@@ -15,7 +15,34 @@
         <div class="md">
             
             {{ thread.body|markdown }}
-            
+
+            {% if thread.link_facebook or thread.link_twitter or thread.link_youtube or thread.link_soundcloud or thread.link_bandcamp or thread.link_website or thread.link_label_website %}
+            <p><strong>Links</strong></p>
+            <ul>
+            {% if thread.link_facebook %}
+            <li><a href="{{ thread.link_facebook }}" target="_blank">Facebook</a></li>
+            {% endif %}
+            {% if thread.link_twitter %}
+            <li><a href="{{ thread.link_twitter }}" target="_blank">Twitter</a></li>
+            {% endif %}
+            {% if thread.link_youtube %}
+            <li><a href="{{ thread.link_youtube }}" target="_blank">YouTube</a></li>
+            {% endif %}
+            {% if thread.link_soundcloud %}
+            <li><a href="{{ thread.link_soundcloud }}" target="_blank">Soundcloud</a></li>
+            {% endif %}
+            {% if thread.link_bandcamp %}
+            <li><a href="{{ thread.link_bandcamp }}" target="_blank">Bandcamp</a></li>
+            {% endif %}
+            {% if thread.link_website %}
+            <li><a href="{{ thread.link_website }}" target="_blank">Official Website</a></li>
+            {% endif %}
+            {% if thread.link_label_website %}
+            <li><a href="{{ thread.link_label_website }}" target="_blank">Label's Website</a></li>
+            {% endif %}
+            </ul>
+            {% endif %}
+
             <p><strong>Verification:</strong> <a href="{{ thread.verification }}" target="_blank">{{ thread.verification }}</a></p>
         
         </div>

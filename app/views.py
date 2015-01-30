@@ -140,6 +140,13 @@ def create_thread():
             user_id=g.user.id,
             title=form.title.data,
             body=form.body.data,
+            link_facebook=form.link_facebook.data,
+            link_twitter=form.link_twitter.data,
+            link_youtube=form.link_youtube.data,
+            link_soundcloud=form.link_soundcloud.data,
+            link_bandcamp=form.link_bandcamp.data,
+            link_website=form.link_website.data,
+            link_label_website=form.link_label_website.data,
             verification=form.verification.data,
             subreddit=form.subreddit.data,
         )
@@ -210,6 +217,13 @@ def edit(thread_id):
         if form.validate_on_submit():
             thread.title = form.title.data
             thread.body = form.body.data
+            thread.link_facebook = form.link_facebook.data
+            thread.link_twitter = form.link_twitter.data
+            thread.link_youtube = form.link_youtube.data
+            thread.link_soundcloud = form.link_soundcloud.data
+            thread.link_bandcamp = form.link_bandcamp.data
+            thread.link_website = form.link_website.data
+            thread.link_label_website = form.link_label_website.data
             thread.verification = form.verification.data
             thread.subreddit = form.subreddit.data
             db.session.commit()
@@ -272,7 +286,7 @@ def success(thread_id):
                 else:
                     reddit_post = r.submit(
                         thread.subreddit,
-                        thread.title,
+                        '[AMA] ' + thread.title,
                         reddit_body(
                             thread.body,
                             thread.verification

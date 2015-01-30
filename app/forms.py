@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from wtforms import TextField, SubmitField
-from wtforms.validators import InputRequired, Length, URL
+from wtforms.validators import InputRequired, Length, URL, Optional
 from flask.ext.pagedown.fields import PageDownField
 
 
@@ -28,6 +28,56 @@ class ThreadForm(Form):
                 max=2500,
                 message="Description cannot be longer than 2500 characters"
             )
+        ]
+    )
+
+    link_facebook = TextField(
+        'Facebook',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
+        ]
+    )
+    link_twitter = TextField(
+        'Twitter',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
+        ]
+    )
+    link_youtube = TextField(
+        'YouTube',
+        validators=[
+            Optional(),
+            URL(require_tld=False)
+        ]
+    )
+    link_soundcloud = TextField(
+        'Soundcloud',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
+        ]
+    )
+    link_bandcamp = TextField(
+        'Bandcamp',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
+        ]
+    )
+    link_website = TextField(
+        'Official Website',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
+        ]
+    )
+    link_label_website = TextField(
+        'Label\'s Website',
+        validators=[
+            Optional(),
+            URL(require_tld=True)
         ]
     )
 
