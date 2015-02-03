@@ -125,7 +125,7 @@ def index():
     )
     return render_template(
         'index.html',
-        page_title="Step 1: Login to your reddit account",
+        page_title="Before You Start",
         oauth_link=oauth_link
     )
 
@@ -160,7 +160,7 @@ def create_thread():
 
     return render_template(
         'create-thread.html',
-        page_title="Step 2: Create your reddit AMA",
+        page_title="Create a New AMA",
         form=form
     )
 
@@ -177,7 +177,7 @@ def preview(thread_id):
         return render_template(
             'preview.html',
             thread=thread,
-            page_title="Step 3: Preview and Submit Your AMA"
+            page_title="Preview and Submit Your AMA"
         )
     elif thread.submitted is True:
         return redirect(url_for(
@@ -275,9 +275,16 @@ def success(thread_id):
                     }
                     reddit_post = r.submit(
                         thread.subreddit,
-                        thread.title,
+                        '[AMA] ' + thread.title,
                         reddit_body(
                             thread.body,
+                            thread.link_facebook,
+                            thread.link_twitter,
+                            thread.link_youtube,
+                            thread.link_soundcloud,
+                            thread.link_bandcamp,
+                            thread.link_website,
+                            thread.link_label_website,
                             thread.verification
                         ),
                         captcha=captcha,
@@ -289,6 +296,13 @@ def success(thread_id):
                         '[AMA] ' + thread.title,
                         reddit_body(
                             thread.body,
+                            thread.link_facebook,
+                            thread.link_twitter,
+                            thread.link_youtube,
+                            thread.link_soundcloud,
+                            thread.link_bandcamp,
+                            thread.link_website,
+                            thread.link_label_website,
                             thread.verification
                         ),
                         raise_captcha_exception=True

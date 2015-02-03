@@ -53,10 +53,8 @@
         <strong>Share Your AMA Preview:</strong> &nbsp; <input type="text" value="http://{{ config.SERVER_NAME }}{{ url_for('share', thread_id=thread.id) }}" />
     </div>
 
-    <p><strong>Notice:</strong> Make sure you have proofread your AMA copy before submitting. After submitting, you can edit the body, but not the title.</p>
+    <p><small><em>If you don't wish to submit your AMA right now, you can come back at anytime and you'll find it waiting here for you.</em></small></p>
 
     <p><a class="btn btn-default" href="{{ url_for('edit', thread_id=thread.id) }}">Edit Your AMA</a> <a class="btn btn-primary" href="{{ url_for('success', thread_id=thread.id) }}">Submit Your AMA</a></p>
-
-    <p><small><em>If you don't wish to submit your AMA right now, you can come back at anytime, login with the same reddit username, and it will be waiting for you.</em></small></p>
 
 {% endblock %}

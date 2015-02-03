@@ -44,56 +44,63 @@
     <div class="form-group">
         <label class="control-label">Social Media/Websites</label>
         <span class="help-block">Include links to your social media accounts and websites below. These fields are optional. Any links you provide will be included at the bottom of your AMA.</span>
-        <div class="input-row{% if form.link_facebook.errors %} has-error{% endif %}">
-            {{ form.link_facebook.label(class="control-label") }}
-            {{ form.link_facebook(class="form-control", placeholder="https://facebook.com", tabindex="4") }}
-            {% if form.link_facebook.errors %}
-            <ul class="errors">{% for error in form.link_facebook.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
+        <div class="row">
+            <div class="col-md-6 input-row{% if form.link_facebook.errors %} has-error{% endif %}">
+                {{ form.link_facebook.label(class="control-label") }}
+                {{ form.link_facebook(class="form-control", placeholder="https://facebook.com", tabindex="4") }}
+                {% if form.link_facebook.errors %}
+                <ul class="errors">{% for error in form.link_facebook.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
+            <div class="col-md-6 input-row{% if form.link_twitter.errors %} has-error{% endif %}">
+                {{ form.link_twitter.label(class="control-label") }}
+                {{ form.link_twitter(class="form-control", placeholder="https://twitter.com", tabindex="5") }}
+                {% if form.link_twitter.errors %}
+                <ul class="errors">{% for error in form.link_twitter.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
         </div>
-        <div class="input-row{% if form.link_twitter.errors %} has-error{% endif %}">
-            {{ form.link_twitter.label(class="control-label") }}
-            {{ form.link_twitter(class="form-control", placeholder="https://twitter.com", tabindex="4") }}
-            {% if form.link_twitter.errors %}
-            <ul class="errors">{% for error in form.link_twitter.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
+        <div class="row">
+            <div class="col-md-6 input-row{% if form.link_youtube.errors %} has-error{% endif %}">
+                {{ form.link_youtube.label(class="control-label") }}
+                {{ form.link_youtube(class="form-control", placeholder="https://youtube.com", tabindex="6") }}
+                {% if form.link_youtube.errors %}
+                <ul class="errors">{% for error in form.link_youtube.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
+            <div class="col-md-6 input-row{% if form.link_soundcloud.errors %} has-error{% endif %}">
+                {{ form.link_soundcloud.label(class="control-label") }}
+                {{ form.link_soundcloud(class="form-control", placeholder="https://soundcloud.com", tabindex="7") }}
+                {% if form.link_soundcloud.errors %}
+                <ul class="errors">{% for error in form.link_soundcloud.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
         </div>
-        <div class="input-row{% if form.link_youtube.errors %} has-error{% endif %}">
-            {{ form.link_youtube.label(class="control-label") }}
-            {{ form.link_youtube(class="form-control", placeholder="https://youtube.com", tabindex="4") }}
-            {% if form.link_youtube.errors %}
-            <ul class="errors">{% for error in form.link_youtube.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
+        <div class="row">
+            <div class="col-md-6 input-row{% if form.link_bandcamp.errors %} has-error{% endif %}">
+                {{ form.link_bandcamp.label(class="control-label") }}
+                {{ form.link_bandcamp(class="form-control", placeholder="https://bandcamp.com", tabindex="8") }}
+                {% if form.link_bandcamp.errors %}
+                <ul class="errors">{% for error in form.link_bandcamp.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
+            <div class="col-md-6 input-row{% if form.link_website.errors %} has-error{% endif %}">
+                {{ form.link_website.label(class="control-label") }}
+                {{ form.link_website(class="form-control", placeholder="http://yourwebsite.com", tabindex="9") }}
+                {% if form.link_website.errors %}
+                <ul class="errors">{% for error in form.link_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
         </div>
-        <div class="input-row{% if form.link_soundcloud.errors %} has-error{% endif %}">
-            {{ form.link_soundcloud.label(class="control-label") }}
-            {{ form.link_soundcloud(class="form-control", placeholder="https://soundcloud.com", tabindex="4") }}
-            {% if form.link_soundcloud.errors %}
-            <ul class="errors">{% for error in form.link_soundcloud.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
+        <div class="row">
+            <div class="col-md-6 input-row{% if form.link_label_website.errors %} has-error{% endif %}">
+                {{ form.link_label_website.label(class="control-label") }}
+                {{ form.link_label_website(class="form-control", placeholder="http://labelswebsite.com", tabindex="10") }}
+                {% if form.link_label_website.errors %}
+                <ul class="errors">{% for error in form.link_label_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
+                {% endif %}
+            </div>
         </div>
-        <div class="input-row{% if form.link_bandcamp.errors %} has-error{% endif %}">
-            {{ form.link_bandcamp.label(class="control-label") }}
-            {{ form.link_bandcamp(class="form-control", placeholder="https://bandcamp.com", tabindex="4") }}
-            {% if form.link_bandcamp.errors %}
-            <ul class="errors">{% for error in form.link_bandcamp.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
-        </div>
-        <div class="input-row{% if form.link_website.errors %} has-error{% endif %}">
-            {{ form.link_website.label(class="control-label") }}
-            {{ form.link_website(class="form-control", placeholder="http://yourwebsite.com", tabindex="4") }}
-            {% if form.link_website.errors %}
-            <ul class="errors">{% for error in form.link_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
-        </div>
-        <div class="input-row{% if form.link_label_website.errors %} has-error{% endif %}">
-            {{ form.link_label_website.label(class="control-label") }}
-            {{ form.link_label_website(class="form-control", placeholder="http://labelswebsite.com", tabindex="4") }}
-            {% if form.link_label_website.errors %}
-            <ul class="errors">{% for error in form.link_label_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
-            {% endif %}
-        </div>
-
     </div>
 
     <div class="divider"></div>
@@ -101,7 +108,7 @@
     <div class="form-group{% if form.verification.errors %} has-error{% endif %}">
         {{ form.verification.label(class="control-label") }}
         <span class="help-block">Include a verification link in the box below to prove your identity. Enter the full URL to your verification in the field below. &nbsp;<a href="#" data-toggle="modal" data-target="#helpVerification"><img src="http://groupsrc.com/easyama/icon_question.png" alt="Need help?" /></a></span>
-        {{ form.verification(class="form-control", placeholder="Must start with http:// or https://", tabindex="4") }}
+        {{ form.verification(class="form-control", placeholder="Must start with http:// or https://", tabindex="11") }}
         {% if form.verification.errors %}
             <ul class="errors">{% for error in form.verification.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
         {% endif %}
@@ -109,7 +116,7 @@
 
     <div class="divider"></div>
 
-    <input class="btn btn-primary btn-lg" id="submit" name="submit" type="submit" value="Preview">
+    <input class="btn btn-primary btn-lg" id="submit" name="submit" tabindex="12" type="submit" value="Preview">
 
 </form>
 

@@ -79,11 +79,34 @@ def pretty_date(time=False):
 
 
 # construct reddit post body
-def reddit_body(desc, verify):
-    body = (
-        desc +
-        '\n\n-'
-        '\n\n**Verification:** ' +
-        verify
-    )
+def reddit_body(desc,
+                facebook,
+                twitter,
+                youtube,
+                soundcloud,
+                bandcamp,
+                website,
+                label_website,
+                verify):
+    body = desc
+    if facebook or twitter \
+            or youtube or soundcloud \
+            or bandcamp or website \
+            or label_website:
+        body = body + '\n\n-\n\n**Links**\n\n-\n\n'
+        if facebook:
+            body = body + '* [Facebook](' + facebook + ')\n'
+        if twitter:
+            body = body + '* [Twitter](' + twitter + ')\n'
+        if youtube:
+            body = body + '* [YouTube](' + youtube + ')\n'
+        if soundcloud:
+            body = body + '* [Soundcloud](' + soundcloud + ')\n'
+        if bandcamp:
+            body = body + '* [Bandcamp](' + bandcamp + ')\n'
+        if website:
+            body = body + '* [Official Website](' + website + ')\n'
+        if label_website:
+            body = body + '* [Label\'s Website](' + label_website + ')\n'
+    body = body + '\n\n-\n\n**Verification:** ' + verify
     return body

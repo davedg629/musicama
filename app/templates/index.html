@@ -4,16 +4,15 @@
 
     {{super()}}
 
-    <p>Before you can create an AMA, login with your reddit account by clicking the button below. If you don't have a reddit account, you can create one <a href="http://www.reddit.com/register" target="_blank">here</a>.</p>
+    <p><strong>Create a reddit account</strong><br />If you do not already have a reddit account, you can create one <a href="http://www.reddit.com/register" target="_blank">here</a>.</p>
+
+    <p><strong>Pick a date</strong><br />Pick a date and block off at least 2 hours on your schedule for your AMA.</p>
+    <p><strong>Message the moderators</strong><br />Go to the subreddit where you will be holding your AMA and find the "message the moderators" link in the right sidebar. Send a message to the moderators to let them know when you plan on doing your AMA so they can put you on the schedule.</p>
+
+    <p><strong>Login with your reddit account</strong><br />Click the button below to login to the easyAMA app using your reddit account. Then follow the instructions within the app to create and submit your AMA.</p>
 
     <p><a id="login-reddit" href="{{ oauth_link }}"><img src="http://groupsrc.com/easyama/login_reddit.png?ver=3.0" alt="Authorize with reddit" /></a></p>
 
-    <p class="small"><strong>The button above will authorize EasyAMA to post to reddit on your behalf. We will not have access to your reddit password during this process and we will never post to reddit without your directive.</strong></p>
-
-    <div class="divider"></div>
-
-    <h3>How It Works</h3>
-
-    <p>Need help using easyAMA? <a href="{{ url_for('how_it_works') }}">Click here to learn how it works.</a></p>
+    <p class="small"><strong>Clicking the button above will begin the authorization process for easyAMA to post to reddit on your behalf. We will not have access to your reddit password during this process and we will never post to reddit without your consent.</strong></p>
 
 {% endblock %}
