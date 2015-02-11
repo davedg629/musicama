@@ -9,7 +9,13 @@
         <span class="help-block">Choose a subreddit for your AMA. Do not prepend it with "/r/".</span>
         <div class="input-group">
             <span class="input-group-addon">/r/</span>
-            {{ form.subreddit(class="form-control", tabindex="1") }}
+            {% if form.errors %}
+            {{ form.subreddit(class="form-control", tabindex="1" ) }}
+            {% elif subreddit %}
+            {{ form.subreddit(class="form-control", tabindex="1", value=subreddit ) }}
+            {% else %}
+            {{ form.subreddit(class="form-control", tabindex="1" ) }}
+            {% endif %}
         </div>
         {% if form.subreddit.errors %}
             <ul class="errors">{% for error in form.subreddit.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
@@ -34,7 +40,7 @@
 
     <div class="form-group{% if form.body.errors %} has-error{% endif %}">
         {{ form.body.label(class="control-label") }}
-        <span class="help-block">The body of your AMA is where you get to tell the audience more about yourself, why you are doing the AMA and what you are promoting. Use <a href="http://www.reddit.com/wiki/commenting#wiki_posting" target="_blank">reddit markdown</a> to format your post. &nbsp;<a href="#" data-toggle="modal" data-target="#helpBody"><img src="http://groupsrc.com/easyama/icon_question.png" alt="Need help?" /></a></span>
+        <span class="help-block">The body of your AMA is where you get to tell the audience more about yourself, why you are doing the AMA, and what you are promoting. Use <a href="http://www.reddit.com/wiki/commenting#wiki_posting" target="_blank">reddit markdown</a> to format your post. &nbsp;<a href="#" data-toggle="modal" data-target="#helpBody"><img src="http://groupsrc.com/easyama/icon_question.png" alt="Need help?" /></a></span>
         {{ form.body(class="form-control", tabindex="3") }}
         {% if form.body.errors %}
             <ul class="errors">{% for error in form.body.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
@@ -45,7 +51,7 @@
 
     <div class="form-group">
         <label class="control-label">Social Media/Websites</label>
-        <span class="help-block">Include links to your social media accounts and websites below. These fields are optional. Any links you provide will be included at the bottom of your AMA.</span>
+        <span class="help-block">Include links to your social media accounts and websites below. These fields are optional. Any links you provide will be included at the bottom of your AMA. All links must begin with "http://" or "https://" to ensure the correct formatting.</span>
         <div class="row">
             <div class="col-sm-6 input-row{% if form.link_facebook.errors %} has-error{% endif %}">
                 {{ form.link_facebook.label(class="control-label") }}
@@ -88,7 +94,7 @@
             </div>
             <div class="col-sm-6 input-row{% if form.link_website.errors %} has-error{% endif %}">
                 {{ form.link_website.label(class="control-label") }}
-                {{ form.link_website(class="form-control", placeholder="http://yourwebsite.com", tabindex="9") }}
+                {{ form.link_website(class="form-control", placeholder="https://yourwebsite.com", tabindex="9") }}
                 {% if form.link_website.errors %}
                 <ul class="errors">{% for error in form.link_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
                 {% endif %}
@@ -97,7 +103,7 @@
         <div class="row">
             <div class="col-sm-6 input-row{% if form.link_label_website.errors %} has-error{% endif %}">
                 {{ form.link_label_website.label(class="control-label") }}
-                {{ form.link_label_website(class="form-control", placeholder="http://labelswebsite.com", tabindex="10") }}
+                {{ form.link_label_website(class="form-control", placeholder="https://labelswebsite.com", tabindex="10") }}
                 {% if form.link_label_website.errors %}
                 <ul class="errors">{% for error in form.link_label_website.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
                 {% endif %}
@@ -130,13 +136,13 @@
         <h4 class="modal-title" id="myModalLabel">Writing a great title</h4>
       </div>
       <div class="modal-body">
-          <p>The title of your AMA should grab redditors attention and briefly describe who you are.</p>
+          <p>The title of your AMA should grab redditors' attention and briefly describe who you are.</p>
           <p><strong>IMPORTANT:</strong></p>
           <ul>
               <li>You cannot edit the title after you submit your AMA. Proofread it multiple times before submitting.</li>
               <li>Briefly explain who you are in the title (e.g. "I am John Doe. AMA." is a bad title).</li>
-              <li>Include "AMA" at the end of your title.</li>
-              <li>Do not promote anything in your title unless you are doing something that is extremely valuable to the community.</li>
+              <li>Include "Ask me anything!" at the end of your title. If multiple band members are participating in the AMA, include "Ask us anything!" at the end.</li>
+              <li>If you have a new release, tour, or other announcement, consider referencing that in the title of your post.</li>
           </ul>
       </div>
     </div>
@@ -155,9 +161,10 @@
           <p><strong>IMPORTANT:</strong></p>
           <ul>
               <li>You can edit the body of your AMA any time after it is submitted, but only make minor corrections. If you want to add something substantial, place it at the end and label it with the word "Edit" in bold.</li>
+              <li>Do not include any type of shortened URL when you make the initial post or edit in subsequent changes. Reddit's site-wide filter will automatically remove your post if you do.</li>
               <li>Express gratitude. Thank the community for allowing you to spend time with them.</li>
               <li>Format the body of your AMA using <a href="http://www.reddit.com/wiki/commenting#wiki_posting" target="_blank">reddit markdown</a>. Breaking your copy into paragraphs is a must, but also consider using bold text and hyperlinks.</li>
-              <li>Feel free to promote something near the end of the body. Reddit is generally more accepting of general links to your social media accounts or website. Do not link a specific product or service unless it is accompanied by a reddit-specific discount code (e.g. enter the code "reddit" for 33% off).</li>
+              <li>Do not include links to the home pages for your social media accounts in this box - those are addressed in the Social Media/Websites section below. If you are linking to merchandise in your online store, please accompany it with a reddit-specific discount code (e.g. enter the code "reddit" for 33% off). Consider offering download links to new releases for free (or pay what you want) or at a reduced rate for a 24-hour period - this is not required but encouraged.</li>
           </ul>
       </div>
     </div>
@@ -175,9 +182,9 @@
           <p>Verifying your AMA is required. It proves to the community that you are who you say you are.</p>
           <p><strong>Options for verifying your AMA:</strong></p>
           <ul>
-              <li>Make a post on your official website or favorite social media account announcing the AMA. The post should include your reddit username and the subreddit you have chosen for your AMA (e.g. "I'm doing a reddit AMA on Tuesday in r/IAmA. My reddit username is /u/reddit_username.").</li>
+              <li>Make a post on your official website or favorite social media account announcing the AMA. The post should include your reddit username and the subreddit you have chosen for your AMA (e.g. "I'm doing a reddit AMA on Tuesday in /r/IAmA. My reddit username is /u/reddit_username.").</li>
               <li>Take a picture of yourself holding up a sign that says "Hi reddit" and includes your reddit username. Upload it to <a href="http://imgur.com" target="_blank">imgur</a> to create a verification link you can share with reddit.</li>
-              <li>Some moderators will verify you before your AMA and tag your AMA as "verified". In this case, it is still good to create a verification link using one of the methods above.</li>
+              <li>Some moderators will verify you before your AMA and tag your AMA as "verified". In this case, it is still good to create a verification link using one of the methods above and to announce the AMA across your social media pages so that fans are aware of the event. If the AMA has been scheduled in advance, you should promote it via social media beforehand as well.</li>
       </div>
     </div>
   </div>
