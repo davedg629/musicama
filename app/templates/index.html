@@ -4,15 +4,40 @@
 
     {{super()}}
 
-    <p><strong>Create a reddit account</strong><br />If you do not already have a reddit account, you can create one <a href="http://www.reddit.com/register" target="_blank">here</a>.</p>
+    <p><strong>Welcome!</strong></p>
+    <p>If you are planning an AMA in one of the music-related subreddits, you are in the right place. If not, go to <a href="http://easyama.co">easyAMA.co</a> to use our general form.</p>
 
-    <p><strong>Pick a date</strong><br />Pick a date and block off at least 2 hours on your schedule for your AMA.</p>
-    <p><strong>Message the moderators</strong><br />Go to the subreddit where you will be holding your AMA and find the "message the moderators" link in the right sidebar. Send a message to the moderators to let them know when you plan on doing your AMA so they can put you on the schedule.</p>
+    <div class="divider"></div>
 
-    <p><strong>Login with your reddit account</strong><br />Click the button below to login to the easyAMA app using your reddit account. Then follow the instructions within the app to create and submit your AMA.</p>
+    <p><strong>What is easyAMA?</strong></p>
+    <p>EasyAMA is a third party application that helps users create reddit AMAs that adhere to reddit conventions and rules. This application interfaces with reddit, but has no affiliation with reddit inc.</p>
 
-    <p><a id="login-reddit" href="{{ oauth_link }}"><img src="http://groupsrc.com/easyama/login_reddit.png?ver=3.0" alt="Authorize with reddit" /></a></p>
+    <div class="divider"></div>
 
-    <p class="small"><strong>Clicking the button above will begin the authorization process for easyAMA to post to reddit on your behalf. We will not have access to your reddit password during this process and we will never post to reddit without your consent.</strong></p>
+    <p><strong>Things You Should Know</strong></p>
+
+    <ul>
+        <li>Reddit is a community of people. Respect the community by adhering to their <a href="http://www.reddit.com/wiki/reddiquette" target="_blank">etiquette</a> and <a href="http://www.reddit.com/rules/" target="_blank">rules</a>.</li>
+        <li>Be ready to answer tough questions from the reddit community.</li>
+        <li>The success of a reddit AMA depends on many factors and is therefore unpredictable. Using easyAMA does not gaurantee any result.</li>
+    </ul>
+    
+    <div class="divider"></div>
+
+    <p><strong>Before Your AMA</strong></p>
+
+    <ol>
+        <li>Create a reddit account. If you do not already have a reddit account, you can create one <a href="http://www.reddit.com/register" target="_blank">here</a>.</li>
+        <li>Pick a date/time for your AMA and block off at least 2 hours on your schedule for your AMA.</li>
+        <li>Message the moderators. Go to the subreddit where you will be holding your AMA and find the "message the moderators" link in the right sidebar. Send a message to the moderators to let them know when you plan on doing your AMA so they can put you on the schedule.</li>
+    </ol>
+
+    <div class="divider"></div>
+
+    <div id="home-get-started">
+        <h2>Ready to get started?</h2>
+        <p>After you have read everything above, click the button below to get started.</p>
+        <p><a class="btn btn-large btn-primary btn-shadow" href="{{ url_for('login') }}">Get Started</a></p>
+    </div>
 
 {% endblock %}

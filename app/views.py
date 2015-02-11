@@ -70,15 +70,15 @@ def authorize():
             login_user(user)
             flash('Hi ' + user.username + '! You have successfully' +
                   ' logged in with your reddit account.')
-            return redirect(url_for('index'))
+            return redirect(url_for('login'))
         except praw.errors.OAuthException:
             flash('There was a problem with your login. Please try again.')
-            return redirect(url_for('index'))
+            return redirect(url_for('login'))
         except:
             flash('Sorry, there was an error. Please try again later.')
-            return redirect(url_for('index'))
+            return redirect(url_for('login'))
     else:
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
 
 
 # logout
@@ -102,6 +102,15 @@ def how_it_works():
 # homepage
 @app.route("/")
 def index():
+    return render_template(
+        'index.html',
+        page_title="Ready to create a reddit AMA? Read this first.",
+    )
+
+
+# login
+@app.route("/login")
+def login():
     if current_user.is_authenticated():
         saved_threads = db.session.query(Thread)\
             .filter_by(user_id=g.user.id)\
@@ -124,7 +133,7 @@ def index():
         True
     )
     return render_template(
-        'index.html',
+        'login.html',
         page_title="Before You Start",
         oauth_link=oauth_link
     )

@@ -1,3 +1,5 @@
+<p class="highlight"><strong>Tip:</strong> Click on the question mark symbols (<img src="http://groupsrc.com/easyama/icon_question.png" alt="Need help?" />) for additional information about a form field.</p>
+
 <form method="post" class="form" role="form">
     
     {{ form.csrf_token }}
@@ -45,14 +47,14 @@
         <label class="control-label">Social Media/Websites</label>
         <span class="help-block">Include links to your social media accounts and websites below. These fields are optional. Any links you provide will be included at the bottom of your AMA.</span>
         <div class="row">
-            <div class="col-md-6 input-row{% if form.link_facebook.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_facebook.errors %} has-error{% endif %}">
                 {{ form.link_facebook.label(class="control-label") }}
                 {{ form.link_facebook(class="form-control", placeholder="https://facebook.com", tabindex="4") }}
                 {% if form.link_facebook.errors %}
                 <ul class="errors">{% for error in form.link_facebook.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
                 {% endif %}
             </div>
-            <div class="col-md-6 input-row{% if form.link_twitter.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_twitter.errors %} has-error{% endif %}">
                 {{ form.link_twitter.label(class="control-label") }}
                 {{ form.link_twitter(class="form-control", placeholder="https://twitter.com", tabindex="5") }}
                 {% if form.link_twitter.errors %}
@@ -61,14 +63,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 input-row{% if form.link_youtube.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_youtube.errors %} has-error{% endif %}">
                 {{ form.link_youtube.label(class="control-label") }}
                 {{ form.link_youtube(class="form-control", placeholder="https://youtube.com", tabindex="6") }}
                 {% if form.link_youtube.errors %}
                 <ul class="errors">{% for error in form.link_youtube.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
                 {% endif %}
             </div>
-            <div class="col-md-6 input-row{% if form.link_soundcloud.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_soundcloud.errors %} has-error{% endif %}">
                 {{ form.link_soundcloud.label(class="control-label") }}
                 {{ form.link_soundcloud(class="form-control", placeholder="https://soundcloud.com", tabindex="7") }}
                 {% if form.link_soundcloud.errors %}
@@ -77,14 +79,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 input-row{% if form.link_bandcamp.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_bandcamp.errors %} has-error{% endif %}">
                 {{ form.link_bandcamp.label(class="control-label") }}
                 {{ form.link_bandcamp(class="form-control", placeholder="https://bandcamp.com", tabindex="8") }}
                 {% if form.link_bandcamp.errors %}
                 <ul class="errors">{% for error in form.link_bandcamp.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
                 {% endif %}
             </div>
-            <div class="col-md-6 input-row{% if form.link_website.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_website.errors %} has-error{% endif %}">
                 {{ form.link_website.label(class="control-label") }}
                 {{ form.link_website(class="form-control", placeholder="http://yourwebsite.com", tabindex="9") }}
                 {% if form.link_website.errors %}
@@ -93,7 +95,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 input-row{% if form.link_label_website.errors %} has-error{% endif %}">
+            <div class="col-sm-6 input-row{% if form.link_label_website.errors %} has-error{% endif %}">
                 {{ form.link_label_website.label(class="control-label") }}
                 {{ form.link_label_website(class="form-control", placeholder="http://labelswebsite.com", tabindex="10") }}
                 {% if form.link_label_website.errors %}
@@ -128,11 +130,13 @@
         <h4 class="modal-title" id="myModalLabel">Writing a great title</h4>
       </div>
       <div class="modal-body">
-          <p>The title of your AMA should grab redditors attention and briefly describe who you are. You can mention a notable accomplishment, an upcoming event that you are involved in, or a free giveaway.</p>
-          <p><strong>More Tips:</strong></p>
+          <p>The title of your AMA should grab redditors attention and briefly describe who you are.</p>
+          <p><strong>IMPORTANT:</strong></p>
           <ul>
               <li>You cannot edit the title after you submit your AMA. Proofread it multiple times before submitting.</li>
-              <li>Do not promote anything in your title unless you are giving away something for free or announcing something that the audience cares deeply about.</li>
+              <li>Briefly explain who you are in the title (e.g. "I am John Doe. AMA." is a bad title).</li>
+              <li>Include "AMA" at the end of your title.</li>
+              <li>Do not promote anything in your title unless you are doing something that is extremely valuable to the community.</li>
           </ul>
       </div>
     </div>
@@ -147,8 +151,14 @@
         <h4 class="modal-title" id="myModalLabel">Writing a great body</h4>
       </div>
       <div class="modal-body">
-          <p>This is the additional content/information that subscribers will see once they enter the thread. Include promotional information, links to official websites, more details about your music/background, etc. This section can be edited at a later date as well, i.e. when the talent has to leave they can say, "Edit: This has been great. Thanks for all the questions!"</p>
-          <p><strong>Note:</strong> Please don't use link shorteners here, because the filter <strong>hates</strong> them and will probably remove your post. If you subsequently edit the post to include a link shortener, the filter will automatically remove it, so please avoid them altogether!
+          <p>The body will be shown to redditors after they click on your AMA. Use the body of your AMA to elaborate on who you are, what you have accomplished, and why you are doing the AMA. You can use the body of your AMA to guide questions towards a specific topic, but remember that no topic is off-limits.</p>
+          <p><strong>IMPORTANT:</strong></p>
+          <ul>
+              <li>You can edit the body of your AMA any time after it is submitted, but only make minor corrections. If you want to add something substantial, place it at the end and label it with the word "Edit" in bold.</li>
+              <li>Express gratitude. Thank the community for allowing you to spend time with them.</li>
+              <li>Format the body of your AMA using <a href="http://www.reddit.com/wiki/commenting#wiki_posting" target="_blank">reddit markdown</a>. Breaking your copy into paragraphs is a must, but also consider using bold text and hyperlinks.</li>
+              <li>Feel free to promote something near the end of the body. Reddit is generally more accepting of general links to your social media accounts or website. Do not link a specific product or service unless it is accompanied by a reddit-specific discount code (e.g. enter the code "reddit" for 33% off).</li>
+          </ul>
       </div>
     </div>
   </div>
@@ -162,14 +172,12 @@
         <h4 class="modal-title" id="myModalLabel">Creating a verification link</h4>
       </div>
       <div class="modal-body">
-          <p>You must include verification with your AMA in the form of a link. Here are some good examples of proof you can provide:</p>
+          <p>Verifying your AMA is required. It proves to the community that you are who you say you are.</p>
+          <p><strong>Options for verifying your AMA:</strong></p>
           <ul>
-              <li>A tweet from your official account tagging the ListenToThis twitter (@L2This).</li>
-              <li>A Facebook post from your official account tagging the ListenToThis Facebook page.</li>
-              <li>An email to our address (redditlistentothis@gmail.com) from an account that appears on one of your official artist pages or website.</li>
-              <li>A link to a photo of you with a sign that says "Hi Reddit" with your username.</li>
-          </ul>
-          <p><strong>Note:</strong> This field is required. If you verified via email, enter a link to your Twitter or Facebook account.</p>
+              <li>Make a post on your official website or favorite social media account announcing the AMA. The post should include your reddit username and the subreddit you have chosen for your AMA (e.g. "I'm doing a reddit AMA on Tuesday in r/IAmA. My reddit username is /u/reddit_username.").</li>
+              <li>Take a picture of yourself holding up a sign that says "Hi reddit" and includes your reddit username. Upload it to <a href="http://imgur.com" target="_blank">imgur</a> to create a verification link you can share with reddit.</li>
+              <li>Some moderators will verify you before your AMA and tag your AMA as "verified". In this case, it is still good to create a verification link using one of the methods above.</li>
       </div>
     </div>
   </div>
