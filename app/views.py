@@ -102,9 +102,6 @@ def how_it_works():
 # homepage
 @app.route("/")
 def index():
-    subreddit = request.args.get('subreddit')
-    if subreddit is not None:
-        session['subreddit'] = subreddit
     return render_template(
         'index.html',
         page_title="Ready to create a reddit AMA? Read this first.",
@@ -172,8 +169,7 @@ def create_thread():
     return render_template(
         'create-thread.html',
         page_title="Create a New AMA",
-        form=form,
-        subreddit=session['subreddit']
+        form=form
     )
 
 

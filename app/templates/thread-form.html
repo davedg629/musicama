@@ -9,13 +9,7 @@
         <span class="help-block">Choose a subreddit for your AMA. Do not prepend it with "/r/".</span>
         <div class="input-group">
             <span class="input-group-addon">/r/</span>
-            {% if form.errors %}
             {{ form.subreddit(class="form-control", tabindex="1" ) }}
-            {% elif subreddit %}
-            {{ form.subreddit(class="form-control", tabindex="1", value=subreddit ) }}
-            {% else %}
-            {{ form.subreddit(class="form-control", tabindex="1" ) }}
-            {% endif %}
         </div>
         {% if form.subreddit.errors %}
             <ul class="errors">{% for error in form.subreddit.errors %}<li class="text-danger">{{ error }}</li>{% endfor %}</ul>
