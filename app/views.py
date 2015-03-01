@@ -448,8 +448,7 @@ def user():
             'user.html',
             user=g.user,
             threads_not_submitted=threads_not_submitted,
-            threads_submitted=threads_submitted,
-            page_title="My Account"
+            threads_submitted=threads_submitted
         )
     else:
         return abort(404)
