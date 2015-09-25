@@ -12,7 +12,7 @@ import praw
 
 @app.before_request
 def before_request():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         g.user = current_user
     else:
         g.user = None
@@ -42,7 +42,7 @@ def internal_error(error):
 @app.route('/authorize/')
 def authorize():
     state = request.args.get('state', '')
-    if current_user.is_anonymous() and (state == session['oauth_token']):
+    if current_user.is_anonymous and (state == session['oauth_token']):
         try:
             code = request.args.get('code', '')
             r = praw.Reddit(user_agent=app.config['REDDIT_USER_AGENT'])
@@ -111,7 +111,7 @@ def index():
 # login
 @app.route("/login")
 def login():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         saved_threads = db.session.query(Thread)\
             .filter_by(user_id=g.user.id)\
             .filter_by(submitted=False)\
@@ -433,7 +433,7 @@ def delete_thread(thread_id):
 @app.route('/user/')
 @login_required
 def user():
-    if current_user.is_authenticated():
+    if current_user.is_authenticated:
         threads_not_submitted = db.session.query(Thread)\
             .filter_by(user_id=g.user.id)\
             .filter_by(submitted=False)\
